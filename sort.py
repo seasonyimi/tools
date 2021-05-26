@@ -4,7 +4,7 @@
 # @Email   : 840806506@qq.com
 # @File    : sort.py
 # @Software: PyCharm
-# @ Describe: --------------------
+# @ Describe: ----------------------
 #冒泡排序
 def bubble_sort(nums):
     for i in range(len(nums)-1): #负责冒泡排序进行的次数
