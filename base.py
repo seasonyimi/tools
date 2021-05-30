@@ -52,3 +52,6 @@ def exexute_command(cmdstring,cwd=None,timeout=None,shell=False):
             if end_time <= datetime.datetime.now():
                 raise Exception("Timeout: %s" %cmdstring)
     return str(sub.returncode)
+
+if __name__ == '__main__':
+    pass
