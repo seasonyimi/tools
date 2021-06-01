@@ -6,6 +6,7 @@
 # @Software: PyCharm
 # @ Describe: --------------------
 #
+import logging,linecache,re
 #本地执行 ssh -keygen -t rsa ,将公钥拷贝到服务器端的 ~/.ssh/autorized_keys
 #免密码远程登录执行命令
 import paramiko
@@ -53,5 +54,31 @@ def exexute_command(cmdstring,cwd=None,timeout=None,shell=False):
                 raise Exception("Timeout: %s" %cmdstring)
     return str(sub.returncode)
 
-if __name__ == '__main__':
-    pass
+#清空上一次数据
+def get_line(file):
+    try:
+        with open(file,'r+') as file:
+            file.truncate(0)
+    except Exception as e:
+        logging.error(e)
+    linecache.clearcache()
+
+#获取指定行数据
+def get_line(file,nums_line):
+    return linecache.getline(file,nums_line).strip() #strip移除头尾指定字符
+
+#分行读取
+def splittrow(file):
+    f = open(file,'r',encoding='utf-8')
+    line1 = f.readlines()
+    for l in line1:
+        logging.info(l)
+    f.close()
+
+#文本提取需要的关键字
+def get_keyword(file,match):
+    txt = open(file,"r").read()
+    result = ""
+    test_txt = re.findall(match,txt)
+    result = result + '\n'.join(test_txt)
+    logging.info(result)
