@@ -41,15 +41,3 @@ class Logger(object):
      self.logger.addHandler(sh) # 把对象加到logger里
      self.logger.addHandler(th)
 
-# 测试
-if __name__ == '__main__':
- logger = Logger('./logs/2020/app.log', 'debug', 'S', 5).logger
- logger.debug('debug')
- logger.info('info')
- logger.warning('警告')
- logger.error('报错')
- logger.critical('严重')
-
- # 单独记录error
- err_logger = Logger('./logs/2020/error.log', 'error', 'S', 3).logger
- err_logger.error('错误 error')
