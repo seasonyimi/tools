@@ -35,4 +35,22 @@ print('字符串大写',myName.upper())   #返回均为大写的字符串
 print('返回d第一次出现时的下标',myName.find('d')) #返回item第一次出现时的下标
 print('以v为界限分割字符串',myName.split('v'))  #在schar位置将字符串分割成字串
 
+# 列表可更改，字符串和元组不行
+# 元组时右括号和逗号分割组成
+
+#集提供的方法
+Myset = (False,4.5,3,6,'cat')
+Yourset = (99,3,100)
+print("Myset=",Myset)
+print("Yourset=",Yourset)
+Myset.union(Yourset)  #返回一个包含set和otherset所有元素的集
+Myset.intersection(Yourset)   #返回一个仅包含两个集公有元素的集
+Myset.difference(Yourset)   #返回一个集，仅包含myset中的元素
+Myset.issubset(Yourset)    #询问myset是否为yourset的子集
+Myset.add(Yourset)        #向myset添加一个元素
+Myset.remove(Yourset)     #将yourset从myset中移除
+Myset.clear(Yourset)     #清除myset的所有元素
+
+#字典提供的方法
+
 
